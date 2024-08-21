@@ -8,7 +8,7 @@ export async function POST(req, res) {
 
   const respuesta = await resend.emails.send({
     from: "no-reply@fyrlois.us",
-    to: "info@fyrlois.us",
+    to: "suchmolin11@gmail.com",
     subject: "CONTACT-US from Fyr Lois Academy Online",
     html: `
     <html>
