@@ -4,10 +4,10 @@ import { headers } from "next/headers"
 import { Resend } from "resend"
 import { cursosInfo } from "@/cursosInfo"
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
-const resend = new Resend("re_QpfqvXFg_7FY6LdA53EXGM5T22kSoFyCE")
-
 export async function POST(request) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+  const resend = new Resend(process.env.RESEND_SECRET_KEY)
+
   const body = await request.text()
   const headersList = headers()
   const sig = headersList.get("stripe-signature")
