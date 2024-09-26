@@ -2,7 +2,7 @@ import { testdata } from "@/testdata"
 import { useState } from "react"
 
 export default function QuestionsTest(props) {
-  const { position, setPosition, answer, setAnswer } = props
+  const { position, setPosition, answer, setAnswer, setResult } = props
   const [next, setNext] = useState(false)
   const [previo, setPrevio] = useState(false)
   const [isSelected, setIsSelected] = useState(false)
@@ -61,7 +61,20 @@ export default function QuestionsTest(props) {
       setIsSelected(true)
       return
     } else {
+      const array = [...answer]
+      array.push({ id: item.id, resp: selected.value, ok: item.ok })
+
+      const res = getResult(array)
+      setResult(res)
     }
+  }
+
+  const getResult = (answer) => {
+    let cont = 0
+    answer.forEach((element) => {
+      if (element.resp === element.ok) cont++
+    })
+    return cont
   }
 
   return (
@@ -88,13 +101,13 @@ export default function QuestionsTest(props) {
           </label>
         </div>
       ))}
-      <div>
+      <div className="">
         {position !== 0 && (
           <button
             id="prev"
             disabled={previo}
             onClick={() => handlePosition("prev")}
-            className="absolute left-5 bottom-7 py-2 px-4 rounded-xl bg-[#90d400] text-[#000b7a] transition-all duration-300 disabled:opacity-20 disabled:cursor-wait"
+            className="absolute left-5 bottom-7 py-2 px-4 rounded-xl bg-[#90d400] text-[#000b7a] transition-all duration-300 disabled:opacity-20 disabled:cursor-wait z-20"
           >
             Anterior
           </button>
@@ -109,7 +122,7 @@ export default function QuestionsTest(props) {
             id="next"
             disabled={next}
             onClick={() => handlePosition("next")}
-            className="absolute right-5 bottom-7 py-2 px-4 rounded-xl bg-[#000b7a] text-white transition-all duration-300 disabled:opacity-20 disabled:cursor-wait"
+            className="absolute right-5 bottom-7 py-2 px-4 rounded-xl bg-[#000b7a] text-white transition-all duration-300 disabled:opacity-20 disabled:cursor-wait z-20"
           >
             Siguiente
           </button>
@@ -118,7 +131,7 @@ export default function QuestionsTest(props) {
           <button
             id="finalizar"
             onClick={handleFinal}
-            className="absolute right-5 bottom-7 py-2 px-4 rounded-xl bg-[#000b7a] text-white transition-all duration-300 disabled:opacity-20 disabled:cursor-wait"
+            className="absolute right-5 bottom-7 py-2 px-4 rounded-xl bg-[#000b7a] text-white transition-all duration-300 disabled:opacity-20 disabled:cursor-wait z-20"
           >
             Finalizar
           </button>

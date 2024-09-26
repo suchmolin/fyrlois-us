@@ -1,8 +1,8 @@
-import Image from "next/image";
-import BotonesCompraCursos from "../BotonesCompraCursos/page";
+import Image from "next/image"
+import BotonesCompraCursos from "../BotonesCompraCursos/page"
 
 export default function TarjetaCompraCurso(props) {
-  const { data } = props;
+  const { data } = props
 
   return (
     <div className="sticky top-0 right-0 h-fit overflow-hidden rounded-xl lg:p-10 shadow-2xl">
@@ -21,6 +21,11 @@ export default function TarjetaCompraCurso(props) {
           <p className="flex gap-2 w-10/12 md:w-7/12 py-1 text-xl font-bold items-center text-[#000b7a]">
             $ {data.price}.00 USD
           </p>
+          {data.inscription && (
+            <p className="text-gray-400 font-normal text-base">
+              + Inscripción: $ {data.inscription}.00 USD
+            </p>
+          )}
           <BotonesCompraCursos id={data.id} precio={data.price} />
 
           <div className="w-full flex flex-col gap-5 py-5">
@@ -73,5 +78,5 @@ export default function TarjetaCompraCurso(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
