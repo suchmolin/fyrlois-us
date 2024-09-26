@@ -1,8 +1,8 @@
-import { cursosInfo } from "@/cursosInfo";
-import Image from "next/image";
+import { cursosInfo } from "@/cursosInfo"
+import Image from "next/image"
 
 export default function CursosBox(props) {
-  const { box } = props;
+  const { box } = props
   return (
     <div
       className={`w-full flex gap-6 justify-center lg:justify-start flex-wrap ${box === "lg" ? "lg:flex-nowrap" : ""}`}
@@ -27,11 +27,16 @@ export default function CursosBox(props) {
             </h4>
             <p className="text-gray-500 pb-6">{curso.description}</p>
           </div>
-          <div className="mx-4 py-5 text-xl text-[#000b7a] font-bold border-t-[1px] border-gray-500">
+          <div className="mx-4 py-5 text-xl text-[#000b7a] font-bold border-t-[1px] border-gray-500 flex flex-col gap-">
             <p>$ {curso.price}.00 USD</p>
+            {curso.inscription && (
+              <p className="text-gray-400 font-normal text-base">
+                + Inscripción: $ {curso.inscription}.00 USD
+              </p>
+            )}
           </div>
         </a>
       ))}
     </div>
-  );
+  )
 }
