@@ -13,8 +13,7 @@ export default function HeaderSingleCourse(props) {
             {data.title}
           </h1>
           <p className="text-lg text-gray-500 py-10">
-            {`${data.description} $${data.price}.00`} + Inscripción: $
-            {data.inscription}.00
+            {`${data.description} $${data.price}.00 ${data.inscription ? `+ Inscripción: $${data.inscription}.00` : ""} USD`}
           </p>
           <div className="flex w-full flex-col items-center gap-4 pb-20">
             <div className="flex gap-4 w-10/12 md:w-8/12 lg:w-full">
