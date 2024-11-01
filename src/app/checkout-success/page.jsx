@@ -23,11 +23,17 @@ export default function Page() {
           En breve recibirás un email, con los detalles de tu compra y serás
           contactado para completar el proceso de inscripción.
         </p>
+        <p className="text-lg text-gray-500 py-2 text-center">
+          Si tienes alguna duda puedes llamarnos al
+        </p>
+        <p className="text-lg text-gray-500 py-2 text-center">
+          +1 (786) 626-6559
+        </p>
         <div className="h-[70px] flex items-center">
           <Link
             href="/"
             aria-label="Nuestros cursos"
-            className="py-2 px-4 bg-[#ffa101] hover:bg-[#000b7a] hover:mb-1 rounded-md text-bold text-[#000b7a] hover:text-white transition-all duration-500 "
+            className="py-2 px-4 bg-[#ffa101] hover:bg-[#000b7a] hover:mb-1 rounded-md text-bold text-[#000b7a] hover:text-white transition-all duration-500"
           >
             Volver a Fyr Lois
           </Link>
